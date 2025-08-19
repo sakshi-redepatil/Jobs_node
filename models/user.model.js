@@ -1,0 +1,43 @@
+module.exports=(Sequelize,sequelize)=>{
+   const model=sequelize.define('user',{
+    id:{
+        type:Sequelize.DataTypes.INTEGER,
+        primaryKey:true,
+        autoIncrement:true,
+    },
+    Name:{
+        type:Sequelize.DataTypes.STRING(100),
+        allowNull:false
+    },
+    Age:{
+        type:Sequelize.DataTypes.INTEGER,
+        allowNull:false
+    },
+    Mobile:{
+        type:Sequelize.DataTypes.STRING(12),
+        allowNull:false
+    },
+    Email:{
+        type:Sequelize.DataTypes.STRING(100),
+        allowNull:false,
+        unique:true
+    },
+    Profile:{
+        type:Sequelize.DataTypes.STRING(100),
+        allowNull:false,
+        defaultValue:'default.jpg'
+    },
+    Password:{
+        type:Sequelize.DataTypes.STRING(100),
+        allowNull:false
+    },
+    Status:{
+        type:Sequelize.DataTypes.BOOLEAN,
+        allowNull:false,
+        defaultValue:true,
+    }
+   },{
+    freezeTableName: true,
+   });
+   return model;
+}
